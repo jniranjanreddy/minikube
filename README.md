@@ -53,3 +53,7 @@ root@minikube01 ~ # minikube start --driver=none
 * Done! kubectl is now configured to use "minikube" cluster and "default" namespace by default
 ```
 
+## How to install minikube specific version
+```
+minikube start --kubernetes-version=v1.23.0 --force
+```
