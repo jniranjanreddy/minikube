@@ -56,4 +56,6 @@ root@minikube01 ~ # minikube start --driver=none
 ## How to install minikube specific version
 ```
 minikube start --kubernetes-version=v1.23.0 --force
+minikube start --kubernetes-version=v1.23.0 --driver=none
+
 ```
