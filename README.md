@@ -55,6 +55,9 @@ root@minikube01 ~ # minikube start --driver=none
 
 ## How to install minikube specific version
 ```
+echo 1 > /proc/sys/net/ipv4/ip_forward
+echo 1 > /proc/sys/net/bridge/bridge-nf-call-iptables
+
 minikube start --kubernetes-version=v1.23.0 --force
 minikube start --kubernetes-version=v1.23.0 --driver=none
 
