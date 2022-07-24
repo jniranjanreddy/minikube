@@ -62,3 +62,8 @@ minikube start --kubernetes-version=v1.23.0 --force
 minikube start --kubernetes-version=v1.23.0 --driver=none
 
 ```
+```
+kubectl create deployment web --image=gcr.io/google-samples/hello-app:1.0
+kubectl expose deployment web --type=NodePort --port=8080
+
+```
