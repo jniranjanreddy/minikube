@@ -67,3 +67,49 @@ kubectl create deployment web --image=gcr.io/google-samples/hello-app:1.0
 kubectl expose deployment web --type=NodePort --port=8080
 
 ```
+## Minikube Multinode
+```
+[devops@minikube01 ~]$ minikube start --nodes=2 -p multinode-demo --kubernetes-version=v1.23.0
+* [multinode-demo] minikube v1.18.1 on Centos 7.9.2009
+* Automatically selected the docker driver
+* Starting control plane node multinode-demo in cluster multinode-demo
+* Pulling base image ...
+* minikube 1.28.0 is available! Download it: https://github.com/kubernetes/minikube/releases/tag/v1.28.0
+* To disable this notice, run: 'minikube config set WantUpdateNotification false'
+
+* Creating docker container (CPUs=2, Memory=2200MB) ...
+    > kubectl.sha256: 64 B / 64 B [--------------------------] 100.00% ? p/s 0s                                     /
+    > kubectl: 44.42 MiB / 44.42 MiB [---------------] 100.00% 2.84 MiB p/s 16s
+    > kubelet: 118.73 MiB / 118.73 MiB [-------------] 100.00% 5.15 MiB p/s 23s
+  - Generating certificates and keys ...
+  - Booting up control plane ...
+  - Configuring RBAC rules ...
+* Configuring CNI (Container Networking Interface) ...
+* Verifying Kubernetes components...
+  - Using image gcr.io/k8s-minikube/storage-provisioner:v4
+* Enabled addons: storage-provisioner, default-storageclass
+
+* Starting node multinode-demo-m02 in cluster multinode-demo
+* Creating docker container (CPUs=2, Memory=2200MB) ...
+
+X Docker is nearly out of disk space, which may cause deployments to fail! (96% of capacity)
+* Suggestion:
+
+    Try one or more of the following to free up space on the device:
+
+    1. Run "docker system prune" to remove unused Docker data (optionally with "-a")
+    2. Increase the storage allocated to Docker for Desktop by clicking on:
+    Docker icon > Preferences > Resources > Disk Image Size
+    3. Run "minikube ssh -- docker system prune" if using the Docker container runtime
+* Related issue: https://github.com/kubernetes/minikube/issues/9024
+
+* Found network options:
+  - NO_PROXY=192.168.49.2
+* Preparing Kubernetes v1.23.0 on Docker 20.10.3 ...
+  - env NO_PROXY=192.168.49.2
+* Verifying Kubernetes components...
+
+! /usr/local/bin/kubectl is version 1.20.4, which may have incompatibilites with Kubernetes 1.23.0.
+  - Want kubectl v1.23.0? Try 'minikube kubectl -- get pods -A'
+* Done! kubectl is now configured to use "multinode-demo" cluster and "default" namespace by default
+```
