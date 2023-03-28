@@ -61,6 +61,10 @@ echo 1 > /proc/sys/net/bridge/bridge-nf-call-iptables
 minikube start --kubernetes-version=v1.23.0 --force
 minikube start --kubernetes-version=v1.23.0 --driver=none
 
+## Choose Container Runtime 
+minikube start --container-runtime=cri-o --kubernetes-version=v1.24.0
+minikube start --container-runtime=containerd
+
 ```
 ```
 kubectl create deployment web --image=gcr.io/google-samples/hello-app:1.0
