@@ -47,3 +47,25 @@ istio-system   istiod                 ClusterIP      10.111.166.241   <none>    
 kube-system    kube-dns               ClusterIP      10.96.0.10       <none>          53/UDP,53/TCP,9153/TCP                                                       25m
 devops@ubuntu24:~$
 ```
+## Verify
+```
+devops@ubuntu24:~$ kubectl get configmap config -n metallb-system -o yaml
+apiVersion: v1
+data:
+  config: |
+    address-pools:
+    - name: default
+      protocol: layer2
+      addresses:
+      - 192.168.49.10-192.168.49.20
+kind: ConfigMap
+metadata:
+  annotations:
+    kubectl.kubernetes.io/last-applied-configuration: |
+      {"apiVersion":"v1","data":{"config":"address-pools:\n- name: default\n  protocol: layer2\n  addresses:\n  - 192.168.49.10-192.168.49.20\n"},"kind":"ConfigMap","metadata":{"annotations":{},"name":"config","namespace":"metallb-system"}}
+  creationTimestamp: "2026-04-05T00:19:28Z"
+  name: config
+  namespace: metallb-system
+  resourceVersion: "2267"
+  uid: 7ae02f6c-fb69-4ce3-9482-95c73a8c90dc
+```
